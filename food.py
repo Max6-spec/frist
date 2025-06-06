@@ -33,7 +33,7 @@ st.bar_chart(
 st.header('💰不同类型餐厅价格')
 np.random.seed(42)
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-restaurants = ["大头椰·椰子鸡火锅", "青和居酒屋", "达美乐比萨", "德意客意式餐厅", "Myway咖啡·小食光"']
+restaurants = ["大头椰·椰子鸡火锅", "青和居酒屋", "达美乐比萨", "德意客意式餐厅", "Myway咖啡·小食光"]
 
 data = {}
 for rest in restaurants:
