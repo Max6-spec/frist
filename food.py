@@ -32,16 +32,19 @@ st.bar_chart(
 
 st.header('💰不同类型餐厅价格')
 
-data = {
-    "餐厅类型": ["中餐", "日式", "快餐", "西餐"],
-    "平均价格(元)": [45, 80, 120, 60],
-    "最低价格(元)": [30, 50, 90, 40],
-    "最高价格(元)": [60, 110, 150, 80]
-}
-df = pd.DataFrame(data).set_index("餐厅类型")
+np.random.seed(42)
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+restaurants = ["大头椰·椰子鸡火锅", "青和居酒屋", "达美乐比萨", "德意客意式餐厅", "Myway咖啡·小食光"]
+data = {}
+for rest in restaurants:
+    base_price = np.random.randint(30, 100)
+    monthly_prices = [base_price + np.random.randint(-15, 20) for _ in range(12)]
+    data[rest] = monthly_prices
+
+df = pd.DataFrame(data, index=months)
 
 # 通过width、height和use_container_width指定折线图的宽度和高度
-st.line_chart(df, width=600, height=500, use_container_width=False)
+st.line_chart(df, width=800, height=500, use_container_width=False)
 
 
 
