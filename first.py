@@ -1,15 +1,15 @@
 import streamlit as st
 import pandas as pd
-st.title('学生 小成 -数字档案:smile:',anchor='sixth')
-st.header("基础信息:smile:",anchor='sixth')
+st.title('🕶️学生 小成 -数字档案')
+st.header('🔑基础信息')
 
 st.text("学生ID:2023-2-01") 
 
-st.markdown("注册时间: :green[2023-9-10 16:41:54] |精神状态：✅正常")
-st.markdown("当前教室: :green[实训楼301] |安全等级: :green[绝密]")
+st.markdown("注册时间: '2023-9-10 16:41:54' |精神状态：✅正常")
+st.markdown("当前教室: '实训楼301' |安全等级: '绝密'")
 
 
-st.subheader('技能矩阵')
+st.subheader('📊技能矩阵')
 # 定义列布局，分成3列
 c1, c2, c3 = st.columns(3)
 c1.metric(label="c语言", value="95%", delta="2%")
@@ -18,10 +18,10 @@ c3.metric(label="Java", value="68%", delta="-10%")
 
 st.markdown('### Streamlit课程进度')
 st.text("streamlit课程进度")
-st.progress(75)#Assuming 75% progress
+st.progress(75)#Assuming 25% progress
 
 
-st.markdown("## 任务日志")
+st.markdown("## 📝任务日志")
 
 data={
     '日期':["2023-10-01","2023-10-05","2023-10-12"],
