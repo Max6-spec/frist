@@ -41,15 +41,30 @@ data = {
 df = pd.DataFrame(data)
 index = pd.Series([1,2,3,4], name='序号')
 
-# 将新索引应用到数据框上
-df.index = index
-df_for_chart = df.set_index('餐厅类型')
+
+df = pd.DataFrame(data).set_index("餐厅类型")
+df_for_chart = df.T
 
 # 通过width、height和use_container_width指定折线图的宽度和高度
-st.line_chart(df, width=400, height=400, use_container_width=False)
+st.line_chart(df, width=600, height=500, use_container_width=False)
 
 
-st.write("完整数据：", df_for_chart)
+
+st.header('🕥用餐高峰时段')
+data={
+    '时间':[11,12,13,14,18],
+    "大头椰·椰子鸡火锅":[50,100,120,100,90],
+    "青和居酒屋":[40,45,50,45,60],
+    "达美乐比萨":[50,70,100,85,80],
+    "德意客意式餐厅":[30,50,70,65,90],
+    "Myway咖啡·小食光":[25,40,50,45,60]
+}
+
+df=pd.DataFrame(data)
+index = pd.Series([1,2,3,4,5], name='序号')
+df.index = index
+
+st.area_chart(df, y=["大头椰·椰子鸡火锅", "青和居酒屋", "达美乐比萨", "德意客意式餐厅", "Myway咖啡·小食光"])
 
 
 
