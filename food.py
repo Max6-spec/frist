@@ -12,7 +12,7 @@ st.header('📍南宁美食地图')
 #创建简单的地图
 st.map(pd.DataFrame({
     "latitude":[22.812163,22.817654,22.813661,22.684570,22.853129],   
-    "longitude":[108.392937,108.334131,108.383764,109.264763,108.225565],
+    "longitude":[108.392937,108.334131,108.383764,108.264763,108.225565],
 }))
 
 
@@ -43,15 +43,13 @@ index = pd.Series([1,2,3,4], name='序号')
 
 # 将新索引应用到数据框上
 df.index = index
-# 通过x指定餐厅类型所在这一列为折线图的x轴
-df.set_index('餐厅类型', inplace=True)
-st.line_chart(df, x='餐厅类型')
+df_for_chart = df.set_index('餐厅类型')
 
 # 通过width、height和use_container_width指定折线图的宽度和高度
 st.line_chart(df, width=400, height=400, use_container_width=False)
 
 
-
+st.write("完整数据：", df_for_chart)
 
 
 
