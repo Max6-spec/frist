@@ -3,9 +3,13 @@ import streamlit as st
 st.set_page_config(page_title='相册')
 
 images = [{
-    "url":"https://www.sea-help.eu/wp-content/uploads/2023-04-05_seahelp_meeresleuchten-bioluminescence.jpg","caption":'海洋'},
-    {"url":"https://images6.alphacoders.com/773/773201.jpg","caption":'海豚'},
-    {"url":"https://wallup.net/wp-content/uploads/2019/10/97666-landscape-sea-sunset-beauty-coast-beach-water-sky-lighthouse-sand-reflection-shine.jpg","caption":'落日'}]
+"url":"https://www.sea-help.eu/wp-content/uploads/2023-04-05_seahelp_meeresleuchten-bioluminescence.jpg",
+    "caption":'海洋'},
+{"url":"https://images6.alphacoders.com/773/773201.jpg",
+    "caption":'海豚'},
+{"url":"https://wallup.net/wp-content/uploads/2019/10/97666-landscape-sea-sunset-beauty-coast-beach-water-sky-lighthouse-sand-reflection-shine.jpg",
+"caption":'落日'}
+]
 
 # 初始化当前图片索引
 if 'current_image_index' not in st.session_state:
@@ -19,7 +23,10 @@ try:
     # 显示当前图片
     st.image(current_image["url"], caption=current_image["caption"])
 
-
+except Exception as e:
+    st.error(f"加载图片时出错: {str(e)}")
+    st.write("当前图片数据:", current_image)
+    
 # 创建两列布局放置按钮
 col1, col2 = st.columns(2)
 
