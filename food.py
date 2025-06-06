@@ -167,3 +167,4 @@ if st.button("帮我选午餐！"):
     # 随机选择一个午餐选项
     selected_lunch = random.choice(lunch_options)
     st.subheader(f"推荐午餐：{selected_lunch['name']}")
+    st.image(selected_lunch["image"], caption=selected_lunch["description"], width=400)
