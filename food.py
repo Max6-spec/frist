@@ -38,12 +38,7 @@ data = {
     "最低价格(元)": [30, 50, 90, 40],
     "最高价格(元)": [60, 110, 150, 80]
 }
-df = pd.DataFrame(data)
-index = pd.Series([1,2,3,4], name='序号')
-
-
 df = pd.DataFrame(data).set_index("餐厅类型")
-df_for_chart = df.T
 
 # 通过width、height和use_container_width指定折线图的宽度和高度
 st.line_chart(df, width=600, height=500, use_container_width=False)
