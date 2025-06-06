@@ -18,7 +18,7 @@ c3.metric(label="Java", value="68%", delta="-10%")
 
 st.markdown('### Streamlit课程进度')
 st.text("streamlit课程进度")
-st.progress(75)#Assuming 25% progress
+st.progress(25)#Assuming 25% progress
 
 
 st.markdown("## 📝任务日志")
