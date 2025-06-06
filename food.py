@@ -79,10 +79,7 @@ if dp == '大头椰·椰子鸡火锅':
     st.subheader('大头椰·椰子鸡火锅')
     c1,c2=st.columns(2)
     c1.metric(labe='评分',value="4.9/5.0 ")
-    c2.metric(labe='推荐菜品：',''''
-    - 大头椰椰水锅
-    - 腊味煲仔饭
-    - 文昌鸡'''')
+    c2.metric(labe='推荐菜品：',value='- 大头椰椰水锅',value='- 腊味煲仔饭',value='- 文昌鸡')
     st.metric(label='人均消费',value="83元")
     
     st.markdown('### 当前拥挤程度')
