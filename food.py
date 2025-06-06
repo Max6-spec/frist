@@ -42,7 +42,7 @@ for rest in restaurants:
     data[rest] = monthly_prices
 df = pd.DataFrame(data, index=months)
 # 通过width、height和use_container_width指定折线图的宽度和高度
-st.line_chart(df, width=600, height=500, use_container_width=False)
+st.line_chart(df, width=1000, height=500, use_container_width=False)
 
 
 
