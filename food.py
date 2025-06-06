@@ -25,8 +25,13 @@ data = {
     "德意客意式餐厅": [4.8, 4.7, 4.5],
     "Myway咖啡": [4.1, 4.3, 4.0]
 }
-df = pd.DataFrame(data).set_index("评分类型")
-st.bar_chart(df)
+df = pd.DataFrame(data)
+# 显示条形图
+st.bar_chart(
+    df.set_index('店铺名称'),
+    width=400,
+    height=300,
+    use_container_width=False)
 
 
 st.header('💰不同类型餐厅价格')
