@@ -11,11 +11,13 @@ images = [{
 if 'current_image_index' not in st.session_state:
     st.session_state.current_image_index = 0
 
-st.subheader("相册")
-
-# 显示当前图片
-current_image = images[st.session_state.current_image_index]
-st.image(current_image["url"], caption=current_image["caption"])
+try:
+    # 获取当前图片数据
+    current_image = images[st.session_state.current_image_index]
+    if not all(key in current_image for key in ["url", "caption"]):
+        raise ValueError("图片数据格式不正确，缺少'url'或'caption'键")
+    # 显示当前图片
+    st.image(current_image["url"], caption=current_image["caption"])
 
 
 # 创建两列布局放置按钮
