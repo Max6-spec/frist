@@ -63,6 +63,23 @@ st.area_chart(df, y=["大头椰·椰子鸡火锅", "青和居酒屋", "达美乐
 
 
 
+def my_format_func(option):
+    return f'{option}'
+
+st.header('餐厅详情')
+dp=st.selectbox('选择餐厅查看详情：',["大头椰·椰子鸡火锅", "青和居酒屋", "达美乐比萨", "德意客意式餐厅", "Myway咖啡·小食光"],format_func=my_format_func,index=2)
+if dp=='大头椰·椰子鸡火锅':
+    st.subheader('大头椰·椰子鸡火锅')
+elif dp=='青和居酒屋':
+    st.subheader('青和居酒屋')
+elif dp=='达美乐比萨':
+    st.subheader('达美乐比萨')
+elif dp=='德意客意式餐厅':
+    st.subheader('德意客意式餐厅')
+else:
+    st.subheader('Myway咖啡·小食光')
+
+
 # 餐厅数据
 restaurants = pd.DataFrame({
     "餐厅": ["大头椰·椰子鸡火锅", "青和居酒屋", "达美乐比萨", "德意客意式餐厅·生日聚会", "Myway咖啡·小食光"],
