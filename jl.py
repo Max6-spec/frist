@@ -48,7 +48,6 @@ with col1:
         uploaded_photo = st.file_uploader("上传个人照片", type=["jpg", "jpeg", "png", "gif"])
         if uploaded_photo is not None:
         # 显示上传的照片
-            st.session_state['photo'] = uploaded_photo
             st.image(uploaded_photo, caption="您上传的照片")
         else:
             st.session_state['photo'] = None
