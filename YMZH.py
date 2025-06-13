@@ -72,8 +72,6 @@ with tab1:
 
 with tab2:
 
-    st.set_page_config(page_title='南宁美食地图')
-
     st.title('🍔南宁美食探索')
     st.text('探索广西南宁最受欢迎的美食地点！选择你感兴趣的餐厅类型，查看评分和位置。')
 
@@ -242,7 +240,6 @@ with tab2:
 
 
 with tab3:
-    st.set_page_config(page_title='相册')
 
     images = [{
 "url":"https://www.sea-help.eu/wp-content/uploads/2023-04-05_seahelp_meeresleuchten-bioluminescence.jpg",
@@ -294,7 +291,7 @@ with tab3:
 
 
 with tab4:
-    st.set_page_config(page_title='Streamlit 视频播放器', page_icon='🎬')
+
 
 # 初始化当前视频索引
     if 'current_video' not in st.session_state:
@@ -391,12 +388,11 @@ with tab4:
 
 
 with tab5:
+    
     language=["英语", "日语", "法语", "德语", "西班牙语", "俄语", "汉语"]
     time=["9:00","9:30","10:00" ,"10:30", "11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30", "随时可联系"]
     skills= ["Python编程", "数据分析", "机器学习", "前端开发", "后端开发", "数据库管理", "项目管理"]
-# 页面配置
-    st.set_page_config(
-        page_title="个人简历生成器",page_icon="📄",layout="wide")
+
 
 # 标题
     st.title("🎨个人简历生成器")
