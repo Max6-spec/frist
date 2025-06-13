@@ -19,7 +19,7 @@ with col1:
     
     # 个人信息输入
     with st.form("personal_info"):
-        st.session_state['name'] = st.text_input("姓名", placeholder="请输入您的姓名")
+         st.session_state['name'] = st.text_input("姓名", placeholder="请输入您的姓名")
          st.session_state['position'] = st.text_input("职位", placeholder="请输入您的职位")
          st.session_state['major'] = st.text_input("专业", placeholder="请输入您的专业")
          st.session_state['email'] = st.text_input("邮箱", placeholder="请输入您的邮箱")
