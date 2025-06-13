@@ -439,7 +439,7 @@ with tab5:
         # 显示上传的照片
                 st.session_state['photo'] = uploaded_photo
                 st.image(uploaded_photo, caption="您上传的照片")
-           else:
+            else:
                 st.session_state['photo'] = None
             submitted = st.form_submit_button("生成简历")
 
