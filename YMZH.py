@@ -12,7 +12,7 @@ st.set_page_config(
 
 st.markdown('# :blue[广西职业师范学院]')
 
-tab1,tab2,tab3=st.tabs(["数字档案","南宁美食地图","相册","视频播放器","个人简历"])
+tab1,tab2,tab3, tab4, tab5=st.tabs(["数字档案","南宁美食地图","相册","视频播放器","个人简历"])
 
 with tab1:
     st.title('🕶️学生 小成 -数字档案')
@@ -426,7 +426,7 @@ with tab5:
             st.session_state['gender'] = check_1 = st.checkbox('其他')
         
             st.session_state['education'] = st.selectbox("🎓 学历", ["初中","高中","本科", "硕士", "博士", "大专", "其他"])
-            st.session_state['languafes'] = st.multiselect("语言能力", language)
+            st.session_state['languages'] = st.multiselect("语言能力", language)
             st.session_state['skills'] = st.multiselect("技能（可多选）", skills)
             st.session_state['experience'] = st.slider("⏳ 工作经验(年)", 0, 30, 0)
             st.session_state['expectation'] = st.slider("💰 期望薪资范围（元）", 5000,50000,(6000,15000))
@@ -473,20 +473,20 @@ with tab5:
                 st.write(f"**语言能力:** {', '.join(st.session_state.get('languages', []))}")
 
         #分隔线
-        st.markdown('***')
+            st.markdown('***')
 
 
         # 个人简介部分
-        st.write("### 个人简介")
-        st.write(st.session_state['bio'])
+            st.write("### 个人简介")
+            st.write(st.session_state['bio'])
 
 
         # 专业技能部分
-        st.write("### 专业技能")
-        for skill in st.session_state['skills']:
-            st.write(f"- {skill}")
+            st.write("### 专业技能")
+            for skill in st.session_state['skills']:
+                st.write(f"- {skill}")
         #分隔线
-        st.markdown('***')
+            st.markdown('***')
         else:
         # 没有表单数据时显示提示
             st.info("请在左侧表单中填写您的个人信息，实时预览将显示在这里。")
