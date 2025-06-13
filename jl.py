@@ -14,11 +14,15 @@ st.title("🎨个人简历生成器")
 st.write("使用streamlit创建您的个性化简历")
 
 # 创建两列布局
-col1, col2 = st.columns([1, 2])
+col1, col2 = st.columns([4, 6])
+
 
 with col1:
     st.header("个人信息表单")
-    
+    #设置蓝条
+    st.markdown("""
+<hr style="height:5px;border:none;color:#1e90ff;background-color:#1e90ff;"/>
+""", unsafe_allow_html=True)
     # 个人信息输入
     with st.form("personal_info"):
         st.session_state['name'] = st.text_input("姓名", placeholder="请输入您的姓名")
@@ -36,7 +40,7 @@ with col1:
         st.session_state['languafes'] = st.multiselect("语言能力", language)
         st.session_state['skills'] = st.multiselect("技能（可多选）", skills)
         st.session_state['experience'] = st.slider("⏳ 工作经验(年)", 0, 30, 0)
-        st.session_state['expectatioon'] = st.slider("💰 期望薪资范围（元）", 5000,50000,(6000,15000))
+        st.session_state['expectation'] = st.slider("💰 期望薪资范围（元）", 5000,50000,(6000,15000))
         
         # 其他信息
         st.session_state['bio'] = st.text_area("个人简介", placeholder="请简要介绍自己")
@@ -44,21 +48,56 @@ with col1:
         uploaded_photo = st.file_uploader("上传个人照片", type=["jpg", "jpeg", "png", "gif"])
         if uploaded_photo is not None:
         # 显示上传的照片
-                st.image(uploaded_photo, caption="您上传的照片")
+            st.session_state['photo'] = uploaded_photo
+            st.image(uploaded_photo, caption="您上传的照片")
+        else:
+            st.session_state['photo'] = None
         submitted = st.form_submit_button("生成简历")
 
 with col2:
     st.header("简历实时预览")
-    current_name = st.session_state.get("name_input", "姓名")
-    current_position = st.session_state.get("position_input", "职位")
-    current_email = st.session_state.get("email_input", "邮箱")
-    current_birth_date = st.session_state.get("birth_date_input", datetime(1999, 12, 31))
-    current_gender = st.session_state.get("gender_radio", "性别")
-    current_education = st.session_state.get("education_select", "学历")
-    current_experience = st.session_state.get("experience_slider", 0)
-    current_salary_range = st.session_state.get("salary_slider", (10000, 20000))
-    current_communication_score = st.session_state.get("communication_slider", 90)
-    current_languages = st.session_state.get("languages_multiselect", [])
-    current_bio = st.session_state.get("bio_textarea", "这个人很熟悉，她需要写作的对话。")
-    
+    #设置蓝条
+    st.markdown("""
+<hr style="height:5px;border:none;color:#1e90ff;background-color:#1e90ff;"/>
+""", unsafe_allow_html=True)
 
+    # 检查是否有表单数据
+    if 'name' in st.session_state:
+        # 个人信息部分
+        col1, col2 = st.columns(2)
+        with col1:
+            st.write(f"### {st.session_state.get('name', '')}")
+            if st.session_state['photo'] is not None:
+                st.image(st.session_state['photo'], width=150)
+            st.write(f"**职位:** {st.session_state.get('position', '')}")
+            st.write(f"**电话:** {st.session_state.get('phone', '')}")
+            st.write(f"**邮箱:** {st.session_state.get('email', '')}")
+            st.write(f"**出生日期:** {st.session_state.get('birth_date', '')}")
+            
+        with col2:
+            
+            st.write(f"**性别:** {st.session_state.get('gender', '')}")
+            st.write(f"**学历:** {st.session_state.get('education', '')}")
+            st.write(f"**工作经验:** {st.session_state.get('experience', 0)}年")
+            st.write(f"**期望薪资:** {st.session_state.get('expectation', (0, 0))[0]} - {st.session_state.get('expectation', (0, 0))[1]}元")
+            st.write(f"**最佳联系时间:** {st.session_state.get('time', '')}")
+            st.write(f"**语言能力:** {', '.join(st.session_state.get('languages', []))}")
+
+        #分隔线
+        st.markdown('***')
+
+
+        # 个人简介部分
+        st.write("### 个人简介")
+        st.write(st.session_state['bio'])
+
+
+        # 专业技能部分
+        st.write("### 专业技能")
+        for skill in st.session_state['skills']:
+            st.write(f"- {skill}")
+        #分隔线
+        st.markdown('***')
+    else:
+        # 没有表单数据时显示提示
+        st.info("请在左侧表单中填写您的个人信息，实时预览将显示在这里。")
