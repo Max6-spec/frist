@@ -286,7 +286,7 @@ with tab3:
 # 主界面
     st.title("海洋美景相册")
     display_image()
-    col1, col2, col3 = st.columns([1,1,6])
+    col1, col2 = st.columns(2)
     with col1:
         if st.button("上一张"):
             if st.session_state.current_image_index > 0:
