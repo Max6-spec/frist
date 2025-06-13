@@ -286,6 +286,22 @@ with tab3:
 # 主界面
     st.title("海洋美景相册")
     display_image()
+    col1, col2, col3 = st.columns([1,1,6])
+    with col1:
+        if st.button("上一张"):
+            if st.session_state.current_image_index > 0:
+                st.session_state.current_image_index -= 1
+            else:
+                st.session_state.current_image_index = len(images) - 1  # 循环到最后一张
+            st.rerun()
+    
+    with col2:
+        if st.button("下一张"):
+            if st.session_state.current_image_index < len(images) - 1:
+                st.session_state.current_image_index += 1
+            else:
+                st.session_state.current_image_index = 0  # 循环到第一张
+            st.rerun()
 
 
 
