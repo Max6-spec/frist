@@ -12,32 +12,32 @@ st.set_page_config(
 st.title("个人简历生成器")
 
 # 创建两列布局
-col1, col2 = st.columns([1, 1])
+col1, col2 = st.columns([1, 2])
 
 with col1:
     st.header("个人信息表单")
     
     # 个人信息输入
     with st.form("personal_info"):
-        name = st.text_input("姓名", placeholder="请输入您的姓名")
-        position = st.text_input("职位", placeholder="请输入您的职位")
-        major = st.text_input("专业", placeholder="请输入您的专业")
-        email = st.text_input("邮箱", placeholder="请输入您的邮箱")
+        st.session_state['name'] = st.text_input("姓名", placeholder="请输入您的姓名")
+         st.session_state['position'] = st.text_input("职位", placeholder="请输入您的职位")
+         st.session_state['major'] = st.text_input("专业", placeholder="请输入您的专业")
+         st.session_state['email'] = st.text_input("邮箱", placeholder="请输入您的邮箱")
         
         # 分两列布局
         col1_1, col1_2 = st.columns(2)
         with col1_1:
-            birth_date = st.date_input("出生日期", value=datetime(1990, 1, 1))
-            gender = st.radio("性别", ["男", "女"])
+             st.session_state['birth_date'] = st.date_input("出生日期", value=datetime(1990, 1, 1))
+             st.session_state['gender'] = st.radio("性别", ["男", "女"])
         with col1_2:
-            education = st.selectbox("学历", ["本科", "硕士", "博士", "大专", "其他"])
-            experience = st.slider("工作经验(年)", 0, 30, 2)
+             st.session_state['education'] = st.selectbox("学历", ["初中","高中","本科", "硕士", "博士", "大专", "其他"])
+             st.session_state['experience'] = st.slider("工作经验(年)", 0, 30, 0)
         
         # 其他信息
-        work_period = st.text_input("工作时间", placeholder="例如: 2005-2020/05")
-        self_management = st.text_area("自我管理方式", placeholder="请描述您的自我管理方式")
-        languages = st.text_input("语言能力", placeholder="例如: 英语(流利), 日语(基础)")
-        bio = st.text_area("个人简介", placeholder="请简要介绍自己")
+         st.session_state['work_period'] = st.text_input("工作时间", placeholder="例如: 2005-2020/05")
+         st.session_state['self_management'] = st.text_area("自我管理方式", placeholder="请描述您的自我管理方式")
+         st.session_state['languages'] = st.text_input("语言能力", placeholder="例如: 英语(流利), 日语(基础)")
+         st.session_state['bio'] = st.text_area("个人简介", placeholder="请简要介绍自己")
         
         submitted = st.form_submit_button("生成简历")
 
