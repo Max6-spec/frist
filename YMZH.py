@@ -473,20 +473,20 @@ with tab5:
                 st.write(f"**语言能力:** {', '.join(st.session_state.get('languages', []))}")
 
         #分隔线
-            st.markdown('***')
+        st.markdown('***')
 
 
         # 个人简介部分
-            st.write("### 个人简介")
-            st.write(st.session_state['bio'])
+        st.write("### 个人简介")
+        st.write(st.session_state['bio'])
 
 
         # 专业技能部分
-            st.write("### 专业技能")
-            for skill in st.session_state['skills']:
-                st.write(f"- {skill}")
+        st.write("### 专业技能")
+        for skill in st.session_state['skills']:
+            st.write(f"- {skill}")
         #分隔线
-           st.markdown('***')
+        st.markdown('***')
         else:
         # 没有表单数据时显示提示
             st.info("请在左侧表单中填写您的个人信息，实时预览将显示在这里。")
