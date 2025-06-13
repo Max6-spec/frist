@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.markdown('# :blue[广西职业师范学院]')
+st.markdown('# 🏫:blue[广西职业师范学院]')
 
 tab1,tab2,tab3, tab4, tab5=st.tabs(["数字档案","南宁美食地图","相册","视频播放器","个人简历"])
 
@@ -271,7 +271,7 @@ with tab3:
             st.image(
                 current_image["url"],
                 caption=current_image["caption"],
-                use_column_width=True
+                use_container_width=True
             )
         
         except Exception as e:
@@ -280,7 +280,7 @@ with tab3:
             st.image(
                 "https://via.placeholder.com/600x400?text=图片加载失败",
                 caption="默认占位图",
-                use_column_width=True
+                use_container_width=True
             )
 
 # 主界面
