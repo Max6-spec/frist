@@ -69,9 +69,9 @@ elif page=="预测分类页面":
             st.write(f'根据您输入的数据，预测该企鹅的物种名称是:**{predict_result_species}**')
         with col_logo:
             if not submitted:
-                st.image(os.path.abspath('images/right_logo.png'),width=300)
+                st.image(os.path.abspath('right_logo.png'),width=300)
             else:
-                st.image(f'images/{predict_result_species}.png',width=300)
+                st.image(f'{predict_result_species}.png',width=300)
         
 
 
