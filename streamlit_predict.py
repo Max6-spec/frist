@@ -2,6 +2,8 @@ import streamlit as st
 import pickle
 import pandas as pd
 import os
+from sklearn.ensemble import RandomForestClassifier
+import joblib
 
 # 设置页面配置
 st.set_page_config(
@@ -23,7 +25,8 @@ if page=='简介页面':
 ''')
 
     st.header('三种企鹅的卡通图像')
-
+    st.image('penguins.png',width=300)
+        
 
 
 elif page=="预测分类页面":
