@@ -3,10 +3,12 @@ import pickle
 import pandas as pd
 import os
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
 import joblib
 
 
-joblib.dump(rfc_model, 'rfc_model.joblib')
+
 # 设置页面配置
 st.set_page_config(
     page_title="企鹅物种分类器",
@@ -64,12 +66,18 @@ elif page=="预测分类页面":
             sex_male=1
         #转化为数据预处理的格式
         format_data=[bill_length, bill_depth, flipper_length, body_mass,island_dream, island_torgerson, island_biscoe, sex_male,sex_female]
-        rfc_model = joblib.load('rfc_model.joblib')
-        with open('rfc_model.pkl', 'rb') as f:
-            rfc_model = pickle.load(f)
+
+        
+        data = load_iris()
+        X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
+        rfc_model = RandomForestClassifier()
+        rfc_model.fit(X_train, y_train)
             
-        with open('output_uniques.pkl', 'rb') as f:
-            output_uniques_map = pickle.load(f)
+        output_uniques_map = {
+        0: '阿德利企鹅',
+        1: '帽带企鹅',
+        2: '巴布亚企鹅'
+        }
         if submitted:
             format_data_df=pd.DataFrame(data=[format_data],columns=rfc_model.feature_names_in_)
             predict_result_code=rfc_model.predict(format_data_df)
