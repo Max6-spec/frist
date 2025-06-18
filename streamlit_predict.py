@@ -85,6 +85,15 @@ elif page=="预测分类页面":
 
             try:
                 img_file = species_images.get(predict_result_code, "default_penguin.png")
+
+            except Exception as e:
+                st.error(f"加载文件失败: {str(e)}")
+                # 提供默认映射
+                output_uniques_map = {
+                    0: ["阿德利企鹅"],
+                    1: ["帽带企鹅"], 
+                    2: ["巴布亚企鹅"]
+                }
     
 
         with col_logo:
