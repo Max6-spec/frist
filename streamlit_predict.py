@@ -78,16 +78,14 @@ elif page=="预测分类页面":
             predict_result_species=output_uniques_map[predict_result_code][0]
             st.write(f'根据您输入的数据，预测该企鹅的物种名称是:**{predict_result_species}**')
             species_images = {
-            "阿德利企鹅": "adelie.png",
-            "帽带企鹅": "chinstrap.png",
-            "巴布亚企鹅": "gentoo.png"
-                        }
-    
+                0: "adelie.png",
+            1: "chinstrap.png", 
+            2: "gentoo.png" 
+                }
+
             try:
-                # 显示预测结果对应的企鹅图片
-                st.image(species_images[predict_result_species], width=300)
-            except KeyError:
-                st.image("default_penguin.png", width=300)
+                img_file = species_images.get(predict_result_code, "default_penguin.png")
+    
 
         with col_logo:
             if not submitted:
