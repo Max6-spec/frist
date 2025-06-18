@@ -70,21 +70,33 @@ elif page=="预测分类页面":
         with open('rfc_model.pkl', 'rb') as f:
             rfc_model = pickle.load(f)
             
-        output_uniques_map = {
-        0: '阿德利企鹅',
-        1: '帽带企鹅',
-        2: '巴布亚企鹅'
-        }
+        with open('output_uniques.pkl', 'rb') as f:
+            output_uniques_map = pickle.load(f)
         if submitted:
             format_data_df=pd.DataFrame(data=[format_data],columns=rfc_model.feature_names_in_)
-            predict_result_code=rfc_model.predict(format_data_df)
-            predict_result_species=output_uniques_map[predict_result_code][0]
+            predict_result_code=rfc_model.predict(format_data_df)[0]
+            predict_result_species=output_uniques_map.get(int(predict_result_code), ["未知物种"])[0]
             st.write(f'根据您输入的数据，预测该企鹅的物种名称是:**{predict_result_species}**')
-        with col_logo:
+            species_images = {
+            "阿德利企鹅": "adelie.png",
+            "帽带企鹅": "chinstrap.png",
+            "巴布亚企鹅": "gentoo.png"
+                        }
+    
+            try:
+                # 显示预测结果对应的企鹅图片
+                st.image(species_images[predict_result_species], width=300)
+            except KeyError:
+                st.warning(f"找不到{predict_result_species}的图片")
+                # 显示默认图片作为后备
+                st.image("default_penguin.png", width=300)
+
+         with col_logo:
             if not submitted:
-                st.image('right_logo.png',width=300)
-            else:
-                st.image(f'predict_result_species.png',width=300)
+                # 显示右侧logo（确保right_logo.png文件存在）
+                st.image("right_logo.png", width=300)
+
+
         
 
 
