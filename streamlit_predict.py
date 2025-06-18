@@ -25,7 +25,7 @@ if page=='简介页面':
 ''')
 
     st.header('三种企鹅的卡通图像')
-    st.image('penguins.png',width=300)
+    st.image('penguins.png')
         
 
 
