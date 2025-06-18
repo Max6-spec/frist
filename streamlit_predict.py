@@ -5,6 +5,8 @@ import os
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 
+
+joblib.dump(rfc_model, 'rfc_model.joblib')
 # 设置页面配置
 st.set_page_config(
     page_title="企鹅物种分类器",
@@ -63,6 +65,9 @@ elif page=="预测分类页面":
         #转化为数据预处理的格式
         format_data=[bill_length, bill_depth, flipper_length, body_mass,island_dream, island_torgerson, island_biscoe, sex_male,sex_female]
         rfc_model = joblib.load('rfc_model.joblib')
+        with open('rfc_model.pkl', 'rb') as f:
+            rfc_model = pickle.load(f)
+            
         with open('output_uniques.pkl', 'rb') as f:
             output_uniques_map = pickle.load(f)
         if submitted:
