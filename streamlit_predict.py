@@ -67,7 +67,8 @@ elif page=="预测分类页面":
         format_data=[bill_length, bill_depth, flipper_length, body_mass,island_dream, island_torgerson, island_biscoe, sex_male,sex_female]
 
         
-        rfc_model = joblib.load('rfc_model.pkl')
+        with open('rfc_model.pkl', 'rb') as f:
+            rfc_model = pickle.load(f)
             
         output_uniques_map = {
         0: '阿德利企鹅',
