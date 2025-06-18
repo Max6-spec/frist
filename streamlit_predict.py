@@ -7,6 +7,8 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 import joblib
 
+FEATURE_COLUMNS = ['bill_length', 'bill_depth', 'flipper_length', 'body_mass',
+                   'island_dream', 'island_torgerson', 'island_biscoe', 'sex_male', 'sex_female']
 
 
 # 设置页面配置
