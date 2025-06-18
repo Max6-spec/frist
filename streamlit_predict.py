@@ -62,8 +62,7 @@ elif page=="预测分类页面":
             sex_male=1
         #转化为数据预处理的格式
         format_data=[bill_length, bill_depth, flipper_length, body_mass,island_dream, island_torgerson, island_biscoe, sex_male,sex_female]
-        with open('rfc_model.pkl', 'rb') as f:
-            rfc_model = pickle.load(f)
+        rfc_model = joblib.load('rfc_model.joblib')
         with open('output_uniques.pkl', 'rb') as f:
             output_uniques_map = pickle.load(f)
         if submitted:
