@@ -9,27 +9,7 @@ st.set_page_config(
     layout="wide",
 
 )
-# 全局样式美化
-st.markdown("""
-    <style>
-        .main {background-color: #F7FBFF;}
-        .block-container {padding-top: 2rem;}
-        h1, h2, h3, h4 {
-            color: #006699;
-        }
-        .stButton > button {
-            background-color: #006699;
-            color: white;
-            border-radius: 10px;
-            height: 3em;
-            width: 100%;
-        }
-        .stSelectbox label, .stNumberInput label {
-            font-weight: bold;
-            color: #003355;
-        }
-    </style>
-""", unsafe_allow_html=True)
+
 
 with st.sidebar:
     st.image('rigth_logo.png',width=120)
@@ -45,7 +25,7 @@ if page=='简介页面':
 ''')
 
     st.header('📸 三种企鹅的卡通图像')
-    st.image('penguins.png', caption="左到右依次为：阿德利企鹅、巴布亚企鹅、帽带企鹅", use_container_width=True)
+    st.image('penguins.png', caption="左到右依次为：帽带企鹅、巴布亚企鹅、阿德利企鹅", use_container_width=True)
 
 elif page=="预测分类页面":
     st.header('🔍预测企鹅分类')
