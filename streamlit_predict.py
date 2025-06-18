@@ -71,11 +71,11 @@ elif page=="预测分类页面":
             rfc_model = pickle.load(f)
             
         with open('output_uniques.pkl', 'rb') as f:
-            output_uniques_map = pickle.load(f)
+            output_uniques= pickle.load(f)
         if submitted:
             format_data_df=pd.DataFrame(data=[format_data],columns=rfc_model.feature_names_in_)
             predict_result_code=rfc_model.predict(format_data_df)[0]
-            predict_result_species=output_uniques_map.get(int(predict_result_code), ["未知物种"])[0]
+            predict_result_species=output_uniques.get(int(predict_result_code), ["未知物种"])[0]
             st.write(f'根据您输入的数据，预测该企鹅的物种名称是:**{predict_result_species}**')
             species_images = {
             "阿德利企鹅": "adelie.png",
