@@ -91,7 +91,7 @@ elif page=="预测分类页面":
                 # 显示默认图片作为后备
                 st.image("default_penguin.png", width=300)
 
-         with col_logo:
+        with col_logo:
             if not submitted:
                 # 显示右侧logo（确保right_logo.png文件存在）
                 st.image("right_logo.png", width=300)
