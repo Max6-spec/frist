@@ -45,7 +45,7 @@ if page=='简介页面':
 ''')
 
     st.header('📸 三种企鹅的卡通图像')
-    st.image('penguins.png', caption="左到右依次为：阿德利企鹅、巴布亚企鹅、帽带企鹅", use_column_width=True)
+    st.image('penguins.png', caption="左到右依次为：阿德利企鹅、巴布亚企鹅、帽带企鹅", use_container_width=True)
 
 elif page=="预测分类页面":
     st.header('🔍预测企鹅分类')
