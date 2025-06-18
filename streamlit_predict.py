@@ -104,7 +104,7 @@ with st.sidebar:
     st.subheader("📧 联系我们")
     st.write("有任何问题或建议？请通过以下方式联系我们：")
     st.write("- 邮箱：3324518920@qq.com")
-    st.write("- 社交媒体：[Twitter](https://twitter.com/penguin_science) | [抖音](https://www.douyin.com/search)")
+    st.write("- 社交媒体：[Twitter](https://twitter.com/penguin_science) | [抖音](https://www.douyin.com/search/%E4%BC%81%E9%B9%85?aid=d8602886-d25e-4b67-ab35-e671839e5459&type=general)")
     
     # 订阅更新
     st.subheader("📫 订阅企鹅研究动态")
