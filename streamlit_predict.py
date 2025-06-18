@@ -103,8 +103,8 @@ with st.sidebar:
     # 联系方式
     st.subheader("📧 联系我们")
     st.write("有任何问题或建议？请通过以下方式联系我们：")
-    st.write("- 邮箱：info@penguinclassifier.org")
-    st.write("- 社交媒体：[Twitter](https://twitter.com/penguin_science) | [Instagram](https://www.instagram.com/penguin_lovers/)")
+    st.write("- 邮箱：3324518920@qq.com")
+    st.write("- 社交媒体：[Twitter](https://twitter.com/penguin_science) | [抖音](https://www.douyin.com/search)")
     
     # 订阅更新
     st.subheader("📫 订阅企鹅研究动态")
