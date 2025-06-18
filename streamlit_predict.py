@@ -10,7 +10,7 @@ st.set_page_config(
 
 )
 with st.sidebar:
-    st.image('images/rigth_logo.png',width=100)
+    st.image('rigth_logo.png',width=100)
     st.title('请选择页面')
     page=st.selectbox("请选择页面",['简介页面','预测分类页面'])
 if page=='简介页面':
@@ -22,7 +22,7 @@ if page=='简介页面':
 ''')
 
     st.header('三种企鹅的卡通图像')
-    st.image('images/penguins.png')
+    st.image('penguins.png')
 
 elif page=="预测分类页面":
     st.header('预测企鹅分类')
@@ -68,9 +68,9 @@ elif page=="预测分类页面":
             st.write(f'根据您输入的数据，预测该企鹅的物种名称是:**{predict_result_species}**')
         with col_logo:
             if not submitted:
-                st.image('images/rigth_logo.png',width=300)
+                st.image('rigth_logo.png',width=300)
             else:
-                st.image(f'images/{predict_result_species}.png',width=300)
+                st.image(f'predict_result_species.png',width=300)
         
 
 
