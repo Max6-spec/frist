@@ -68,10 +68,7 @@ elif page=="预测分类页面":
         format_data=[bill_length, bill_depth, flipper_length, body_mass,island_dream, island_torgerson, island_biscoe, sex_male,sex_female]
 
         
-        data = load_iris()
-        X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, random_state=42)
-        rfc_model = RandomForestClassifier()
-        rfc_model.fit(X_train, y_train)
+        rfc_model = train_penguin_model()
             
         output_uniques_map = {
         0: '阿德利企鹅',
