@@ -70,7 +70,7 @@ elif page=="预测分类页面":
             if not submitted:
                 st.image('rigth_logo.png',width=300)
             else:
-                st.image(f'predict_result_species.png',width=300)
+                st.image(f'{predict_result_species}.png',width=300)
         
 
 
