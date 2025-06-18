@@ -76,13 +76,21 @@ elif page=="预测分类页面":
         2: '巴布亚企鹅'
         }
         if submitted:
-            format_data_df=pd.DataFrame(data=[format_data],columns=rfc_model.feature_names_in_)
-            predict_result_code=rfc_model.predict(format_data_df)
-            predict_result_species=output_uniques_map[predict_result_code][0]
-            st.write(f'根据您输入的数据，预测该企鹅的物种名称是:**{predict_result_species}**')
+            # 1. 创建包含用户输入的DataFrame
+            input_df = pd.DataFrame([format_data], columns=rfc_model.feature_names_in_)
+    
+            # 2. 使用模型进行预测（得到预测结果数组）
+            prediction = rfc_model.predict(input_df)
+    
+            # 3. 从预测数组中提取第一个预测编码
+            species_code = prediction[0]
+    
+            # 4. 将编码映射为物种名称
+            species_name = output_uniques_map[species_code][0]
+            st.success(f'根据您输入的数据，预测该企鹅的物种名称是:**{species_name}**')
         with col_logo:
             if not submitted:
-                st.image('right_logo.png',width=300)
+                st.image('rigth_logo.png',width=300)
             else:
                 st.image(f'predict_result_species.png',width=300)
         
