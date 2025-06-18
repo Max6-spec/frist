@@ -33,7 +33,7 @@ st.markdown("""
 
 with st.sidebar:
     st.image('rigth_logo.png',width=120)
-    st.markdown('##🐧 企鹅分类器导航')
+    st.title('🐧 企鹅分类器导航')
     page=st.selectbox("📄 请选择页面",['简介页面','预测分类页面'])
     
 if page=='简介页面':
