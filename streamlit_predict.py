@@ -1,12 +1,6 @@
 import streamlit as st
 import pickle
 import pandas as pd
-import os
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-import joblib
-
 
 # 设置页面配置
 st.set_page_config(
@@ -16,7 +10,7 @@ st.set_page_config(
 
 )
 with st.sidebar:
-    st.image('rigth_logo.png',width=100)
+    st.image('images/rigth_logo.png',width=100)
     st.title('请选择页面')
     page=st.selectbox("请选择页面",['简介页面','预测分类页面'])
 if page=='简介页面':
@@ -28,9 +22,7 @@ if page=='简介页面':
 ''')
 
     st.header('三种企鹅的卡通图像')
-    st.image('penguins.png')
-        
-
+    st.image('images/penguins.png')
 
 elif page=="预测分类页面":
     st.header('预测企鹅分类')
@@ -65,37 +57,20 @@ elif page=="预测分类页面":
             sex_male=1
         #转化为数据预处理的格式
         format_data=[bill_length, bill_depth, flipper_length, body_mass,island_dream, island_torgerson, island_biscoe, sex_male,sex_female]
-
-        
         with open('rfc_model.pkl', 'rb') as f:
             rfc_model = pickle.load(f)
-            
         with open('output_uniques.pkl', 'rb') as f:
-            output_uniques_map= pickle.load(f)
+            output_uniques_map = pickle.load(f)
         if submitted:
             format_data_df=pd.DataFrame(data=[format_data],columns=rfc_model.feature_names_in_)
-            predict_result_code=rfc_model.predict(format_data_df)[0]
+            predict_result_code=rfc_model.predict(format_data_df)
             predict_result_species=output_uniques_map[predict_result_code][0]
             st.write(f'根据您输入的数据，预测该企鹅的物种名称是:**{predict_result_species}**')
-            species_images = {
-                0: "adelie.png",
-            1: "chinstrap.png", 
-            2: "gentoo.png" 
-                }
-
-           
-            output_uniques_map = {
-                    0: ["阿德利企鹅"],
-                    1: ["帽带企鹅"], 
-                    2: ["巴布亚企鹅"]
-                }
-    
-
         with col_logo:
             if not submitted:
-                st.image("right_logo.png", width=300)
-
-
+                st.image('images/rigth_logo.png',width=300)
+            else:
+                st.image(f'images/{predict_result_species}.png',width=300)
         
 
 
