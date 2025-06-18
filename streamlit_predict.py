@@ -114,11 +114,7 @@ with st.sidebar:
             st.success(f"感谢订阅！您将收到最新的企鹅研究和保护资讯。")
         else:
             st.warning("请输入有效的邮箱地址")
-    
-    # 友情链接
-    st.subheader("🔗 相关资源")
-    for name, url in 友情链接.items():
-        st.markdown(f"- [{name}]({url})")
+
     
     # 版权信息
     st.markdown("---")
